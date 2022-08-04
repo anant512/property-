@@ -3,6 +3,8 @@ package com.property.controllers;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +34,7 @@ public class PropertyController {
 	
 	//POST-create property
 	@PostMapping("/")
-	public ResponseEntity <PropertyDto> createProperty(@RequestBody PropertyDto propertyDto){
+	public ResponseEntity <PropertyDto> createProperty( @Valid @RequestBody PropertyDto propertyDto){
 		
 		PropertyDto createPropertyDto= this.propertyService.createProperty(propertyDto);
 		return  new ResponseEntity<>(createPropertyDto,HttpStatus.CREATED);
@@ -42,7 +44,7 @@ public class PropertyController {
 	//PUT-update property
 	
 	@PutMapping("/{Id}")
-	  public ResponseEntity<PropertyDto> updateProperty(@RequestBody PropertyDto propertyDto, @PathVariable("Id") Integer Id ){
+	  public ResponseEntity<PropertyDto> updateProperty( @Valid @RequestBody PropertyDto propertyDto, @PathVariable("Id") Integer Id ){
 		  
 		 PropertyDto updatedProperty= this.propertyService.updateProperty(propertyDto, Id);
 		  

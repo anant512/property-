@@ -84,15 +84,16 @@ public class PropertyServiceImpl implements PropertyService {
 	}
 	
 	private PropertyDetails dtoToProperty(PropertyDto propertyDto) {
-		PropertyDetails property= new PropertyDetails();
-		property.setId(propertyDto.getId());
-		property.setApartmenttype(propertyDto.getApartmenttype());
-		property.setBhktype(propertyDto.getBhktype());
-		property.setPropertyage(propertyDto.getPropertyage());
-		property.setFloor(propertyDto.getFloor());
-		property.setTotalfloor(propertyDto.getTotalfloor());
-		property.setFacing(propertyDto.getFacing());
-		property.setBuilduparea(propertyDto.getBuilduparea());
+		
+		PropertyDetails property= this.modelmapper.map(propertyDto,PropertyDetails.class);
+//		property.setId(propertyDto.getId());
+//		property.setApartmenttype(propertyDto.getApartmenttype());
+//		property.setBhktype(propertyDto.getBhktype());
+//		property.setPropertyage(propertyDto.getPropertyage());
+//		property.setFloor(propertyDto.getFloor());
+//		property.setTotalfloor(propertyDto.getTotalfloor());
+//		property.setFacing(propertyDto.getFacing());
+//		property.setBuilduparea(propertyDto.getBuilduparea());
 		
 		return property;
 	}
@@ -100,15 +101,15 @@ public class PropertyServiceImpl implements PropertyService {
 	
 	public PropertyDto propertyToDto(PropertyDetails property) {
 		
-		PropertyDto propertyDto=new PropertyDto();
-		propertyDto.setId(property.getId());
-		propertyDto.setApartmenttype(property.getApartmenttype());
-		propertyDto.setBhktype(property.getBhktype());
-		propertyDto.setPropertyage(property.getPropertyage());
-		propertyDto.setFloor(property.getFloor());
-		propertyDto.setTotalfloor(property.getTotalfloor());
-		propertyDto.setFacing(property.getFacing());
-		propertyDto.setBuilduparea(property.getBuilduparea());
+		PropertyDto propertyDto=this.modelmapper.map(property,PropertyDto.class );
+//		propertyDto.setId(property.getId());
+//		propertyDto.setApartmenttype(property.getApartmenttype());
+//		propertyDto.setBhktype(property.getBhktype());
+//		propertyDto.setPropertyage(property.getPropertyage());
+//		propertyDto.setFloor(property.getFloor());
+//		propertyDto.setTotalfloor(property.getTotalfloor());
+//		propertyDto.setFacing(property.getFacing());
+//		propertyDto.setBuilduparea(property.getBuilduparea());
 		return propertyDto;
 		
 	}
